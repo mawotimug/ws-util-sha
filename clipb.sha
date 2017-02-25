@@ -2,7 +2,321 @@ Make(delphi)
 ver(4.05 build 186)
 Add(ClipboardHook,2249592,21,427)
 {
- link(onChange,15044938:doEvent2,[])
+ link(onCMake(delphi)
+ver(4.05 build 186)
+Add(InfoTip,9401496,588,28)
+{
+ Info=#7:РџРµСЂРµРЅРѕСЃ|
+ Font=[MS Sans Serif,8,1,0,1]
+ Frame=2
+ Width=218
+ Height=151
+}
+Add(ClipboardHook,2249592,21,427)
+{
+ link(onChange,8216573:doCharset,[])
+}
+Add(MainForm,14149671,77,196)
+{
+ Width=200
+ Height=153
+ Caption="Р‘СѓС„РµСЂ РѕР±РјРµРЅР°"
+ BorderStyle=3
+ TaskBar=1
+ DragForm=0
+ Position=1
+ Point(doBringToFront)
+ Point(Handle)
+ link(onCreate,1428098:doEvent1,[])
+}
+Add(WinTools,9566406,182,266)
+{
+ link(Handle,14149671:Handle,[(188,250)(83,250)])
+}
+Add(Button,1679658,70,84)
+{
+ Left=20
+ Top=10
+ Width=70
+ Height=25
+ Enabled=1
+ Name="b1"
+ Caption="РЎС‚СЂРёРї"
+}
+Add(Button,701988,328,83)
+{
+ Left=110
+ Top=10
+ Width=70
+ Height=25
+ Name="b4"
+ Caption="Р’РђР "
+ link(onClick,15995107:doString,[(390,89)(390,97)])
+}
+Add(Button,15448268,599,120)
+{
+ Left=20
+ Top=50
+ Width=70
+ Height=25
+ Name="b2"
+ Caption="РџРµСЂРµРЅРѕСЃ"
+ link(onClick,8057347:doWork1,[(669,126)(669,125)])
+}
+Add(Button,9688806,356,243)
+{
+ Left=110
+ Top=50
+ Width=70
+ Height=25
+ Name="b3"
+ Caption="РџРµСЂРµРЅРѕСЃ2"
+ link(onClick,12326848:doString,[(404,249)(404,258)])
+}
+Add(InfoTip,441407,70,469)
+{
+ Info=#16:РїРѕРєР°Р·С‹РІР°РµРј Р±СѓС„РµСЂ|13:РїСЂРё РёР·РјРµРЅРµРЅРёРё|
+ Frame=2
+ Transparent=1
+ Width=113
+}
+Add(Clipboard,2289642,406,35)
+{
+}
+Add(InfoTip,16263286,175,196)
+{
+ Info=#4:РѕРєРЅРѕ|6:РїРѕРІРµСЂС…|11:РґСЂСѓРіРёС… РѕРєРѕРЅ|
+ Frame=2
+ Transparent=1
+ Width=71
+ Height=46
+}
+Add(FormatStr,15995107,406,91)
+{
+ DataCount=1
+ Mask="{{Р’РђР |%1<!-- \n\n-->|<!-- \n\n-->%1}}"
+ link(onFString,11733140:doPutText,[])
+ link(Str1,2289642:Text,[])
+}
+Add(InfoTip,8647859,343,175)
+{
+ Info=#8:РџРµСЂРµРЅРѕСЃ2|
+ Font=[MS Sans Serif,8,1,0,1]
+ Frame=2
+ Width=190
+ Height=123
+}
+Add(InfoTip,5117928,56,56)
+{
+ Info=#5:РЎС‚СЂРёРї|
+ Frame=2
+ Transparent=1
+ Height=18
+}
+Add(Button,12261154,336,413)
+{
+ Left=50
+ Top=90
+ Width=100
+ Height=25
+ Caption="Р”РµСЂР°Р·СЂСЏРґРєР°"
+ link(onClick,2091572:doReplace,[])
+}
+Add(PointHint,3878408,315,7)
+{
+ Info=#3:Р’РђР |
+ Font=[MS Sans Serif,8,1,0,1]
+ Frame=2
+ Transparent=0
+ VAlign=0
+ Width=211
+ Height=137
+}
+Add(Hub,1428098,119,210)
+{
+ link(onEvent1,9566406:doPopup,[(154,216)(154,279)])
+ link(onEvent2,15044938:doEvent1,[(147,223)(147,426)])
+}
+Add(Hub,15044938,161,420)
+{
+ InCount=2
+ OutCount=1
+ link(onEvent1,1934091:doText,[])
+}
+Add(Clipboard,12713658,203,336)
+{
+ Unicode=0
+}
+Add(InfoTip,52015,217,378)
+{
+ Info=#12:РїРѕРєР°Р· Р±СѓС„РµСЂР°|10:РїСЂРё СЃС‚Р°СЂС‚Рµ|
+ Frame=2
+ Transparent=1
+ Width=78
+}
+Add(InfoTip,1428368,315,336)
+{
+ Info=#10:Р”РµСЂР°Р·СЂСЏРґРєР°|
+ Font=[MS Sans Serif,8,1,0,1]
+ Frame=2
+ Width=218
+ Height=123
+}
+Add(MultiElement,8057347,672,119)
+{
+ link(onEvent1,572424:doPutText,[])
+ link(Data1,12620625:Text,[])
+}
+BEGIN_SDK
+  Add(EditMulti,11841589,42,112)
+  {
+   EventCount=1
+   WorkCount=1
+   DataCount=1
+   Width=650
+   Height=354
+   link(doWork1,10768859:doCopy,[(67,118)(67,300)])
+  }
+  Add(FormatStr,13926983,448,294)
+  {
+   DataCount=1
+   Mask="{{РџРµСЂРµРЅРѕСЃ|%1|вЂ¦}}"
+   Point(FString)
+   link(onFString,11841589:onEvent1,[(586,300)(586,118)])
+  }
+  Add(InfoTip,3754090,434,231)
+  {
+   Info=#25:С„РѕСЂРјРёСЂСѓРµРј С€Р°Р±Р»РѕРЅ РїРµСЂРµРЅРѕСЃР°|
+   Frame=2
+   Height=46
+  }
+  Add(Copy,10768859,84,294)
+  {
+   Position=1
+   Count=1
+   Direction=1
+   link(onCopy,7886244:doCompare,[])
+   link(Str,6614775:Var2,[])
+  }
+  Add(If_else,7886244,147,294)
+  {
+   link(onTrue,11795699:doLength,[(198,300)(198,223)])
+   link(onFalse,13872618:doData,[])
+   link(Op2,7121811:Value,[])
+  }
+  Add(Memory,7121811,154,217)
+  {
+   Default=String(-)
+  }
+  Add(GetDataEx,10437197,84,203)
+  {
+   link(Data,6905647:Var2,[])
+  }
+  Add(Hub,13147469,322,294)
+  {
+   InCount=2
+   OutCount=1
+   link(onEvent1,13926983:doString,[])
+  }
+  Add(Length,11795699,217,217)
+  {
+   link(onLength,373823:doDelete,[])
+   link(Str,10437197:Var1,[(223,208)])
+  }
+  Add(Delete,373823,273,217)
+  {
+   Position=0
+   Count=1
+   link(onDelete,13147469:doEvent1,[(314,223)(314,300)])
+   link(Str,6905647:Var3,[(279,194)])
+   link(Position,11795699:Result,[(286,205)(256,205)(256,262)(223,262)])
+  }
+  Add(GetDataEx,6905647,84,189)
+  {
+   link(Data,11841589:Data1,[(90,150)(48,150)])
+  }
+  Add(DoData,13872618,231,301)
+  {
+   link(onEventData,13147469:doEvent2,[])
+   link(Data,6614775:Var3,[(237,271)])
+  }
+  Add(GetDataEx,6614775,84,266)
+  {
+   link(Data,10437197:Var2,[])
+  }
+  Add(InfoTip,5571147,56,336)
+  {
+   Info=#16:РїРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР»|
+   Frame=2
+   Transparent=1
+  }
+  Add(InfoTip,6863189,224,154)
+  {
+   Info=#13:РЈРґР°Р»СЏРµРј РґРµС„РёСЃ|
+   Frame=2
+   Transparent=1
+  }
+  Add(InfoTip,6786173,210,343)
+  {
+   Info=#63:РїРѕСЃР»Рµ СЃСЂР°РІРЅРµРЅРёСЏ РІ РїРѕС‚РѕРєРµ РїРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР», РЅР°Рј РЅСѓР¶РЅР° РІСЃСЏ СЃС‚СЂРѕРєР°|
+   Frame=2
+   Width=85
+   Height=95
+  }
+  Add(InfoTip,3036193,133,336)
+  {
+   Info=#7: РґРµС„РёСЃ?|
+   Frame=2
+   VAlign=1
+   Height=25
+  }
+END_SDK
+Add(Clipboard,12620625,672,63)
+{
+}
+Add(Clipboard,572424,742,119)
+{
+}
+Add(Clipboard,11733140,469,91)
+{
+}
+Add(Clipboard,13927774,427,203)
+{
+}
+Add(Clipboard,1912249,483,252)
+{
+}
+Add(Clipboard,3562371,413,357)
+{
+}
+Add(Clipboard,13354123,476,413)
+{
+}
+Add(Replace,2091572,413,413)
+{
+ SubStr="\32"
+ link(onReplace,13354123:doPutText,[])
+ link(Str,3562371:Text,[])
+}
+Add(FormatStr,12326848,427,252)
+{
+ DataCount=1
+ Mask="{{РџРµСЂРµРЅРѕСЃ2|вЂ¦|%1}}"
+ Point(FString)
+ link(onFString,1912249:doPutText,[])
+ link(Str1,13927774:Text,[])
+}
+Add(Charset,8216573,77,427)
+{
+ Type=6
+ link(onCharset,15044938:doEvent2,[])
+}
+Add(StatusBar,1934091,203,420)
+{
+ SizeGrip=1
+ link(Text,12713658:Text,[])
+}
+hange,15044938:doEvent2,[])
 }
 Add(Label,4523010,189,420)
 {
@@ -18,7 +332,7 @@ Add(MainForm,14149671,77,196)
 {
  Width=200
  Height=209
- Caption="Буфер обмена"
+ Caption="ГЃГіГґГҐГ° Г®ГЎГ¬ГҐГ­Г "
  BorderStyle=3
  TaskBar=1
  DragForm=0
@@ -38,7 +352,7 @@ Add(Button,1679658,70,84)
  Width=70
  Height=25
  Name="b1"
- Caption="Стрип"
+ Caption="Г‘ГІГ°ГЁГЇ"
 }
 Add(Button,701988,328,97)
 {
@@ -47,7 +361,7 @@ Add(Button,701988,328,97)
  Width=70
  Height=25
  Name="b4"
- Caption="ВАР"
+ Caption="Г‚ГЂГђ"
  link(onClick,15995107:doString,[(390,103)(390,97)])
 }
 Add(Button,15448268,361,211)
@@ -57,7 +371,7 @@ Add(Button,15448268,361,211)
  Width=70
  Height=25
  Name="b2"
- Caption="Перенос"
+ Caption="ГЏГҐГ°ГҐГ­Г®Г±"
  link(onClick,8057347:doWork1,[(431,217)(431,216)])
 }
 Add(Button,9688806,363,334)
@@ -67,12 +381,12 @@ Add(Button,9688806,363,334)
  Width=70
  Height=25
  Name="b3"
- Caption="Перенос2"
+ Caption="ГЏГҐГ°ГҐГ­Г®Г±2"
  link(onClick,3428910:doWork1,[(415,340)(415,342)])
 }
 Add(InfoTip,441407,63,448)
 {
- Info=#16:показываем буфер|13:при изменении|
+ Info=#16:ГЇГ®ГЄГ Г§Г»ГўГ ГҐГ¬ ГЎГіГґГҐГ°|13:ГЇГ°ГЁ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГЁ|
  Frame=2
  Transparent=1
  Width=113
@@ -82,7 +396,7 @@ Add(Clipboard,2289642,406,35)
 }
 Add(InfoTip,16263286,175,196)
 {
- Info=#4:окно|6:поверх|11:других окон|
+ Info=#4:Г®ГЄГ­Г®|6:ГЇГ®ГўГҐГ°Гµ|11:Г¤Г°ГіГЈГЁГµ Г®ГЄГ®Г­|
  Frame=2
  Transparent=1
  Width=71
@@ -91,27 +405,27 @@ Add(InfoTip,16263286,175,196)
 Add(FormatStr,15995107,406,91)
 {
  DataCount=1
- Mask="{{ВАР|%1<!-- \n\n-->|<!-- \n\n-->%1}}"
+ Mask="{{Г‚ГЂГђ|%1<!-- \n\n-->|<!-- \n\n-->%1}}"
  link(onFString,11733140:doPutText,[])
  link(Str1,2289642:Text,[])
 }
 Add(InfoTip,9401496,343,182)
 {
- Info=#7:Перенос|
+ Info=#7:ГЏГҐГ°ГҐГ­Г®Г±|
  Frame=2
  Transparent=1
  Height=18
 }
 Add(InfoTip,8647859,350,308)
 {
- Info=#8:Перенос2|
+ Info=#8:ГЏГҐГ°ГҐГ­Г®Г±2|
  Frame=2
  Transparent=1
  Height=18
 }
 Add(InfoTip,5117928,56,56)
 {
- Info=#5:Стрип|
+ Info=#5:Г‘ГІГ°ГЁГЇ|
  Frame=2
  Transparent=1
  Height=18
@@ -122,12 +436,12 @@ Add(Button,12261154,364,448)
  Top=90
  Width=100
  Height=25
- Caption="Деразрядка"
+ Caption="Г„ГҐГ°Г Г§Г°ГїГ¤ГЄГ "
  link(onClick,2091572:doReplace,[])
 }
 Add(PointHint,3878408,308,56)
 {
- Info=#3:ВАР|
+ Info=#3:Г‚ГЂГђ|
  Frame=2
 }
 Add(Hub,1428098,119,210)
@@ -146,14 +460,14 @@ Add(Clipboard,12713658,189,336)
 }
 Add(InfoTip,52015,203,378)
 {
- Info=#12:показ буфера|10:при старте|
+ Info=#12:ГЇГ®ГЄГ Г§ ГЎГіГґГҐГ°Г |10:ГЇГ°ГЁ Г±ГІГ Г°ГІГҐ|
  Frame=2
  Transparent=1
  Width=78
 }
 Add(InfoTip,1428368,343,420)
 {
- Info=#10:Деразрядка|
+ Info=#10:Г„ГҐГ°Г Г§Г°ГїГ¤ГЄГ |
  Frame=2
  Transparent=1
  Width=78
@@ -184,7 +498,7 @@ BEGIN_SDK
   Add(FormatStr,13926983,448,294)
   {
    DataCount=1
-   Mask="{{Перенос|%1|…}}"
+   Mask="{{ГЏГҐГ°ГҐГ­Г®Г±|%1|вЂ¦}}"
    Point(FString)
    link(onFString,8538451:doStrCatDlm,[])
   }
@@ -197,21 +511,21 @@ BEGIN_SDK
   }
   Add(InfoTip,13432654,343,231)
   {
-   Info=#24:отделяем последнее слово|
+   Info=#24:Г®ГІГ¤ГҐГ«ГїГҐГ¬ ГЇГ®Г±Г«ГҐГ¤Г­ГҐГҐ Г±Г«Г®ГўГ®|
    Frame=2
    Transparent=1
    Height=46
   }
   Add(InfoTip,3754090,434,224)
   {
-   Info=#25:формируем шаблон переноса|
+   Info=#25:ГґГ®Г°Г¬ГЁГ°ГіГҐГ¬ ГёГ ГЎГ«Г®Г­ ГЇГҐГ°ГҐГ­Г®Г±Г |
    Frame=2
    Transparent=1
    Height=46
   }
   Add(InfoTip,1066490,518,224)
   {
-   Info=#24:вставляем шаблон обратно|
+   Info=#24:ГўГ±ГІГ ГўГ«ГїГҐГ¬ ГёГ ГЎГ«Г®Г­ Г®ГЎГ°Г ГІГ­Г®|
    Frame=2
    Transparent=1
    Height=46
@@ -272,20 +586,20 @@ BEGIN_SDK
   }
   Add(InfoTip,5571147,105,336)
   {
-   Info=#23:последний символ дефис?|
+   Info=#23:ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ© Г±ГЁГ¬ГўГ®Г« Г¤ГҐГґГЁГ±?|
    Frame=2
    Transparent=1
    Height=46
   }
   Add(InfoTip,6863189,224,154)
   {
-   Info=#13:Удаляем дефис|
+   Info=#13:Г“Г¤Г Г«ГїГҐГ¬ Г¤ГҐГґГЁГ±|
    Frame=2
    Transparent=1
   }
   Add(InfoTip,6786173,210,343)
   {
-   Info=#63:после сравнения в потоке последний символ, нам нужна вся строка|
+   Info=#63:ГЇГ®Г±Г«ГҐ Г±Г°Г ГўГ­ГҐГ­ГЁГї Гў ГЇГ®ГІГ®ГЄГҐ ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ© Г±ГЁГ¬ГўГ®Г«, Г­Г Г¬ Г­ГіГ¦Г­Г  ГўГ±Гї Г±ГІГ°Г®ГЄГ |
    Frame=2
    Transparent=1
    Width=85
@@ -326,7 +640,7 @@ BEGIN_SDK
   Add(FormatStr,12326848,252,182)
   {
    DataCount=1
-   Mask="{{Перенос2|…|%1}}"
+   Mask="{{ГЏГҐГ°ГҐГ­Г®Г±2|вЂ¦|%1}}"
    Point(FString)
    link(onFString,14746364:doStrCatDlm,[])
   }
@@ -339,21 +653,21 @@ BEGIN_SDK
   }
   Add(InfoTip,11719840,140,245)
   {
-   Info=#21:отделяем первое слово|
+   Info=#21:Г®ГІГ¤ГҐГ«ГїГҐГ¬ ГЇГҐГ°ГўГ®ГҐ Г±Г«Г®ГўГ®|
    Frame=2
    Transparent=1
    Height=46
   }
   Add(InfoTip,9034775,238,245)
   {
-   Info=#25:формируем шаблон переноса|
+   Info=#25:ГґГ®Г°Г¬ГЁГ°ГіГҐГ¬ ГёГ ГЎГ«Г®Г­ ГЇГҐГ°ГҐГ­Г®Г±Г |
    Frame=2
    Transparent=1
    Height=46
   }
   Add(InfoTip,15842747,336,245)
   {
-   Info=#24:вставляем шаблон обратно|
+   Info=#24:ГўГ±ГІГ ГўГ«ГїГҐГ¬ ГёГ ГЎГ«Г®Г­ Г®ГЎГ°Г ГІГ­Г®|
    Frame=2
    Transparent=1
    Height=46
