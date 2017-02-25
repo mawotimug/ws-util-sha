@@ -1,0 +1,379 @@
+Make(delphi)
+ver(4.05 build 186)
+Add(ClipboardHook,2249592,21,427)
+{
+ link(onChange,15044938:doEvent2,[])
+}
+Add(Label,4523010,189,420)
+{
+ Left=10
+ Top=130
+ Width=180
+ Height=40
+ Name="Label"
+ Caption=""
+ link(Text,12713658:Text,[])
+}
+Add(MainForm,14149671,77,196)
+{
+ Width=200
+ Height=209
+ Caption="Буфер обмена"
+ BorderStyle=3
+ TaskBar=1
+ DragForm=0
+ Position=1
+ Point(doBringToFront)
+ Point(Handle)
+ link(onCreate,1428098:doEvent1,[])
+}
+Add(WinTools,9566406,182,266)
+{
+ link(Handle,14149671:Handle,[(188,250)(83,250)])
+}
+Add(Button,1679658,70,84)
+{
+ Left=20
+ Top=10
+ Width=70
+ Height=25
+ Name="b1"
+ Caption="Стрип"
+}
+Add(Button,701988,328,97)
+{
+ Left=110
+ Top=10
+ Width=70
+ Height=25
+ Name="b4"
+ Caption="ВАР"
+ link(onClick,15995107:doString,[(390,103)(390,97)])
+}
+Add(Button,15448268,361,211)
+{
+ Left=20
+ Top=50
+ Width=70
+ Height=25
+ Name="b2"
+ Caption="Перенос"
+ link(onClick,8057347:doWork1,[(431,217)(431,216)])
+}
+Add(Button,9688806,363,334)
+{
+ Left=110
+ Top=50
+ Width=70
+ Height=25
+ Name="b3"
+ Caption="Перенос2"
+ link(onClick,3428910:doWork1,[(415,340)(415,342)])
+}
+Add(InfoTip,441407,63,448)
+{
+ Info=#16:показываем буфер|13:при изменении|
+ Frame=2
+ Transparent=1
+ Width=113
+}
+Add(Clipboard,2289642,406,35)
+{
+}
+Add(InfoTip,16263286,175,196)
+{
+ Info=#4:окно|6:поверх|11:других окон|
+ Frame=2
+ Transparent=1
+ Width=71
+ Height=46
+}
+Add(FormatStr,15995107,406,91)
+{
+ DataCount=1
+ Mask="{{ВАР|%1<!-- \n\n-->|<!-- \n\n-->%1}}"
+ link(onFString,11733140:doPutText,[])
+ link(Str1,2289642:Text,[])
+}
+Add(InfoTip,9401496,343,182)
+{
+ Info=#7:Перенос|
+ Frame=2
+ Transparent=1
+ Height=18
+}
+Add(InfoTip,8647859,350,308)
+{
+ Info=#8:Перенос2|
+ Frame=2
+ Transparent=1
+ Height=18
+}
+Add(InfoTip,5117928,56,56)
+{
+ Info=#5:Стрип|
+ Frame=2
+ Transparent=1
+ Height=18
+}
+Add(Button,12261154,364,448)
+{
+ Left=50
+ Top=90
+ Width=100
+ Height=25
+ Caption="Деразрядка"
+ link(onClick,2091572:doReplace,[])
+}
+Add(PointHint,3878408,308,56)
+{
+ Info=#3:ВАР|
+ Frame=2
+}
+Add(Hub,1428098,119,210)
+{
+ link(onEvent1,9566406:doPopup,[(154,216)(154,279)])
+ link(onEvent2,15044938:doEvent1,[(147,223)(147,426)])
+}
+Add(Hub,15044938,161,420)
+{
+ InCount=2
+ OutCount=1
+ link(onEvent1,4523010:doText,[])
+}
+Add(Clipboard,12713658,189,336)
+{
+}
+Add(InfoTip,52015,203,378)
+{
+ Info=#12:показ буфера|10:при старте|
+ Frame=2
+ Transparent=1
+ Width=78
+}
+Add(InfoTip,1428368,343,420)
+{
+ Info=#10:Деразрядка|
+ Frame=2
+ Transparent=1
+ Width=78
+ Height=18
+}
+Add(MultiElement,8057347,434,210)
+{
+ link(Data1,12620625:Text,[])
+ link(onEvent1,572424:doPutText,[])
+}
+BEGIN_SDK
+  Add(EditMulti,11841589,42,112)
+  {
+   EventCount=1
+   WorkCount=1
+   DataCount=1
+   Width=650
+   Height=354
+   link(doWork1,10768859:doCopy,[(67,118)(67,300)])
+  }
+  Add(MultiStrData,8402797,350,294)
+  {
+   Char=" "
+   Count=1
+   Direct=1
+   link(onPart1,13926983:doString,[])
+  }
+  Add(FormatStr,13926983,448,294)
+  {
+   DataCount=1
+   Mask="{{Перенос|%1|…}}"
+   Point(FString)
+   link(onFString,8538451:doStrCatDlm,[])
+  }
+  Add(StrCatDelim,8538451,539,294)
+  {
+   Delimiter=" "
+   link(onStrCatDlm,11841589:onEvent1,[(631,300)(631,118)])
+   link(Str1,8402797:RemaindStr,[(545,285)(397,285)(397,338)(356,338)])
+   link(Str2,13926983:FString,[(552,272)(520,272)(520,338)(454,338)])
+  }
+  Add(InfoTip,13432654,343,231)
+  {
+   Info=#24:отделяем последнее слово|
+   Frame=2
+   Transparent=1
+   Height=46
+  }
+  Add(InfoTip,3754090,434,224)
+  {
+   Info=#25:формируем шаблон переноса|
+   Frame=2
+   Transparent=1
+   Height=46
+  }
+  Add(InfoTip,1066490,518,224)
+  {
+   Info=#24:вставляем шаблон обратно|
+   Frame=2
+   Transparent=1
+   Height=46
+  }
+  Add(Copy,10768859,84,294)
+  {
+   Position=1
+   Count=1
+   Direction=1
+   link(onCopy,7886244:doCompare,[])
+   link(Str,6614775:Var2,[])
+  }
+  Add(If_else,7886244,147,294)
+  {
+   link(onTrue,11795699:doLength,[(198,300)(198,223)])
+   link(onFalse,13872618:doData,[])
+   link(Op2,7121811:Value,[])
+  }
+  Add(Memory,7121811,154,217)
+  {
+   Default=String(-)
+  }
+  Add(GetDataEx,10437197,84,203)
+  {
+   link(Data,6905647:Var2,[])
+  }
+  Add(Hub,13147469,322,294)
+  {
+   InCount=2
+   OutCount=1
+   link(onEvent1,8402797:doSplit,[])
+  }
+  Add(Length,11795699,217,217)
+  {
+   link(onLength,373823:doDelete,[])
+   link(Str,10437197:Var1,[(223,208)])
+  }
+  Add(Delete,373823,273,217)
+  {
+   Position=0
+   Count=1
+   link(onDelete,13147469:doEvent1,[(314,223)(314,300)])
+   link(Str,6905647:Var3,[(279,194)])
+   link(Position,11795699:Result,[(286,205)(256,205)(256,262)(223,262)])
+  }
+  Add(GetDataEx,6905647,84,189)
+  {
+   link(Data,11841589:Data1,[(90,150)(48,150)])
+  }
+  Add(DoData,13872618,231,301)
+  {
+   link(onEventData,13147469:doEvent2,[])
+   link(Data,6614775:Var3,[(237,271)])
+  }
+  Add(GetDataEx,6614775,84,266)
+  {
+   link(Data,10437197:Var2,[])
+  }
+  Add(InfoTip,5571147,105,336)
+  {
+   Info=#23:последний символ дефис?|
+   Frame=2
+   Transparent=1
+   Height=46
+  }
+  Add(InfoTip,6863189,224,154)
+  {
+   Info=#13:Удаляем дефис|
+   Frame=2
+   Transparent=1
+  }
+  Add(InfoTip,6786173,210,343)
+  {
+   Info=#63:после сравнения в потоке последний символ, нам нужна вся строка|
+   Frame=2
+   Transparent=1
+   Width=85
+   Height=95
+  }
+END_SDK
+Add(Clipboard,12620625,434,154)
+{
+}
+Add(Clipboard,572424,504,210)
+{
+}
+Add(Clipboard,11733140,469,91)
+{
+}
+Add(MultiElement,3428910,434,336)
+{
+ link(Data1,13927774:Text,[])
+ link(onEvent1,1912249:doPutText,[])
+}
+BEGIN_SDK
+  Add(EditMulti,14571237,21,21)
+  {
+   EventCount=1
+   WorkCount=1
+   DataCount=1
+   Width=552
+   Height=284
+   link(doWork1,14190868:doSplit,[(87,27)(87,188)])
+  }
+  Add(MultiStrData,14190868,154,182)
+  {
+   Char=" "
+   Count=1
+   link(Str,14571237:Data1,[(160,102)(27,102)])
+   link(onPart1,12326848:doString,[])
+  }
+  Add(FormatStr,12326848,252,182)
+  {
+   DataCount=1
+   Mask="{{Перенос2|…|%1}}"
+   Point(FString)
+   link(onFString,14746364:doStrCatDlm,[])
+  }
+  Add(StrCatDelim,14746364,343,182)
+  {
+   Delimiter=" "
+   link(onStrCatDlm,14571237:onEvent1,[(474,188)(474,27)])
+   link(Str1,12326848:FString,[(349,170)(303,170)(303,226)(258,226)])
+   link(Str2,14190868:RemaindStr,[(356,152)(232,152)(232,226)(160,226)])
+  }
+  Add(InfoTip,11719840,140,245)
+  {
+   Info=#21:отделяем первое слово|
+   Frame=2
+   Transparent=1
+   Height=46
+  }
+  Add(InfoTip,9034775,238,245)
+  {
+   Info=#25:формируем шаблон переноса|
+   Frame=2
+   Transparent=1
+   Height=46
+  }
+  Add(InfoTip,15842747,336,245)
+  {
+   Info=#24:вставляем шаблон обратно|
+   Frame=2
+   Transparent=1
+   Height=46
+  }
+END_SDK
+Add(Clipboard,13927774,434,287)
+{
+}
+Add(Clipboard,1912249,490,336)
+{
+}
+Add(Clipboard,3562371,441,392)
+{
+}
+Add(Clipboard,13354123,504,448)
+{
+}
+Add(Replace,2091572,441,448)
+{
+ SubStr="\32"
+ link(onReplace,13354123:doPutText,[])
+ link(Str,3562371:Text,[])
+}
